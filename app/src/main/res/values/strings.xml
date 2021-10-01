@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">GymBuddy</string>
+    <string name="str_UserName">Username</string>
+    <string name="strhintPassword">Password</string>
+    <string name="strbtnLogin">Login</string>
+    <string name="str_btnsignup">Signup</string>
+    <string name="hint_firstName">First Name</string>
+    <string name="hintLastName">Last Name</string>
+    <string name="hint_Email">Email</string>
+    <string name="hint_ChoosePassword">Choose Password</string>
+    <string name="hint_repeatPassword">Repeat Password</string>
+    <string name="str_btnCancel">Cancel</string>
+    <string name="str_btnSignup">Signup</string>
+    <string name="str_selectAvatar">Select Avatar</string>
+    <string name="strName">Name</string>
+    <string name="str_Phone">Phone</string>
+    <string name="str_btnCreateNewContact">Create New Contact</string>
+    <string name="str_btnLogout">Logout</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>

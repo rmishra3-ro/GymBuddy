@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText_password"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="51dp"
+        android:text="@string/strbtnLogin" />
+
+    <Button
+        android:id="@+id/button_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_login"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="67dp"
+        android:layout_marginRight="67dp"
+        android:layout_marginBottom="0dp"
+        android:text="@string/str_btnsignup" />
+
+    <EditText
+        android:id="@+id/editText_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button_login"
+        android:layout_alignLeft="@+id/button_login"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="148dp"
+        android:ems="10"
+        android:hint="@string/str_UserName"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editText_email"
+        android:layout_alignLeft="@+id/editText_email"
+        android:layout_alignRight="@+id/editText_email"
+        android:layout_alignStart="@+id/editText_email"
+        android:layout_below="@+id/editText_email"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="@string/strhintPassword"
+        android:inputType="textPersonName" />
+</RelativeLayout>
