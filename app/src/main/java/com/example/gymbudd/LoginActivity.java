@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListener;
     EditText editText_email, editText_password;
-    Button button_login, button_signup;
+    Button button_login, button_signup, trainer_signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        trainer_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent messi = new Intent(LoginActivity.this, TrainerSignUpActivity.class);
+                startActivity(messi);
             }
         });
 
