@@ -1,16 +1,30 @@
 package com.example.gymbudd;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class QuestionnaireActivity extends AppCompatActivity {
 
     Button button_Submit;
+    FirebaseFirestore db;
+    FirebaseAuth fAuth;
 
     private Spinner spinnerAge;
     private Spinner spinnerGender;
@@ -30,6 +44,8 @@ public class QuestionnaireActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire);
+        db = FirebaseFirestore.getInstance();
+        fAuth = FirebaseAuth.getInstance();
 
         spinnerAge = findViewById(R.id.spinnerAge);
         spinnerGender = findViewById(R.id.spinnerGender);
@@ -108,7 +124,37 @@ public class QuestionnaireActivity extends AppCompatActivity {
         button_Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String age = spinnerAge.getSelectedItem().toString();
+                String gender = spinnerGender.getSelectedItem().toString();
+                String fitnessGoal = spinnerFitnessGoal.getSelectedItem().toString();
+                String gymFreq = spinnerGymFreq.getSelectedItem().toString();
+                String gymProgramInterest = spinnerGymProgramInterest.getSelectedItem().toString();
+                String gymTiming = spinnerGymTiming.getSelectedItem().toString();
+                String sameGender = spinnerSameGender.getSelectedItem().toString();
+                String interestPT = spinnerInterestPT.getSelectedItem().toString();
+                String gymSession = spinnerGymSession.getSelectedItem().toString();
+                String equipmentFamiliar = spinnerEquipmentFamiliar.getSelectedItem().toString();
+                String hardWorkoutPartner = spinnerHadWorkoutPartner.getSelectedItem().toString();
+                String rate = spinnerRate.getSelectedItem().toString();
+                String identifier = getIntent().getExtras().get("CLASS").toString();
 
+                User user = new User(age, gender, fitnessGoal, gymFreq, gymProgramInterest, gymTiming, sameGender, interestPT, gymSession, equipmentFamiliar, hardWorkoutPartner, rate, identifier);
+                Map<String, User> userMap = new HashMap<>();
+
+
+                userMap.put(fAuth.getCurrentUser().getUid(), user);
+                db.collection("Data").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Toast.makeText(QuestionnaireActivity.this, "User Added", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(QuestionnaireActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        Log.d("Test", e.toString());
+                    }
+                });
             }
         });
 

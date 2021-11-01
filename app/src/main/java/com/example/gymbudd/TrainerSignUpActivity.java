@@ -90,6 +90,7 @@ public class TrainerSignUpActivity extends AppCompatActivity {
                                         Toast.makeText(TrainerSignUpActivity.this, "Signup Successful", Toast.LENGTH_SHORT).show();
                                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                         Intent intent = new Intent(TrainerSignUpActivity.this, QuestionnaireActivity.class);
+                                        intent.putExtra("CLASS", "Trainer");
                                         startActivity(intent);
                                         finish();
                                     }

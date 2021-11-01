@@ -24,6 +24,17 @@ public class LoginActivity extends AppCompatActivity {
     Button button_login, button_signup, trainer_signup;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.signOut();
+        if (mAuth.getCurrentUser() != null) {
+            Intent intent = new Intent(LoginActivity.this, QuestionnaireActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    //GGaXscC6BXcVE5TGmc6nfLlfeXb2
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
