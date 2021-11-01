@@ -61,6 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+
         //Signup Button
         buttonsignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +92,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     }else {
                                         Toast.makeText(SignUpActivity.this, "Signup Successful", Toast.LENGTH_SHORT).show();
                                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                                        Intent intent = new Intent(SignUpActivity.this, GymBuddyActivity.class);
+                                        Intent intent = new Intent(SignUpActivity.this, QuestionnaireActivity.class);
                                         startActivity(intent);
                                         finish();
                                     }
