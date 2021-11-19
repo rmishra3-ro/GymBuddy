@@ -3,9 +3,12 @@ package com.example.gymbudd;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    String age, gender, fitnessGoal, gymFreq, gymProgramInterest, gymTiming, sameGender, interestPT, gymSession, equipmentFamiliar, hardWorkoutPartner, rate, identifier;
+    String email, name, age, gender, fitnessGoal, gymFreq, gymProgramInterest, gymTiming, sameGender, interestPT, gymSession, equipmentFamiliar, hardWorkoutPartner, rate, identifier;
 
-    public User(String age, String gender, String fitnessGoal, String gymFreq, String gymProgramInterest, String gymTiming, String sameGender, String interestPT, String gymSession, String equipmentFamiliar, String hardWorkoutPartner, String rate, String identifier) {
+    public User(String age, String gender, String fitnessGoal,
+                String gymFreq, String gymProgramInterest, String gymTiming, String sameGender,
+                String interestPT, String gymSession, String equipmentFamiliar,
+                String hardWorkoutPartner, String rate, String identifier, String email, String name) {
         this.age = age;
         this.gender = gender;
         this.fitnessGoal = fitnessGoal;
@@ -19,6 +22,8 @@ public class User implements Serializable {
         this.hardWorkoutPartner = hardWorkoutPartner;
         this.rate = rate;
         this.identifier = identifier;
+        this.email = email;
+        this.name = name;
     }
 
     @Override
@@ -37,7 +42,25 @@ public class User implements Serializable {
                 ", hardWorkoutPartner='" + hardWorkoutPartner + '\'' +
                 ", rate='" + rate + '\'' +
                 ", identifier='" + identifier + '\'' +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
                 '}';
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getIdentifier() {

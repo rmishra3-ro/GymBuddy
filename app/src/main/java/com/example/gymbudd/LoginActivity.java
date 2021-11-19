@@ -26,9 +26,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        mAuth.signOut();
+        //mAuth.signOut();
         if (mAuth.getCurrentUser() != null) {
-            Intent intent = new Intent(LoginActivity.this, QuestionnaireActivity.class);
+            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
             startActivity(intent);
         }
     }
